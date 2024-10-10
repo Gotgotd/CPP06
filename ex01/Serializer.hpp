@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:48:17 by gdaignea          #+#    #+#             */
-/*   Updated: 2024/10/10 14:55:02 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:04:09 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ struct Data {
 
 class Serializer {
 
-	public:
+	private:
+
 	Serializer();
 	Serializer(Serializer const& copy);
 	~Serializer();
+
+	public:
 
 	Serializer&	operator=(Serializer const& rhs);
 
