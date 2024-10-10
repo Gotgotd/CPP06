@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:48:17 by gdaignea          #+#    #+#             */
-/*   Updated: 2024/10/09 17:17:59 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/10 14:55:02 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <string>
-# include <cstdint>
+# include <stdint.h>
 
 struct Data {
 	std::string	content;
