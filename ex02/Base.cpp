@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:56:43 by gdaignea          #+#    #+#             */
-/*   Updated: 2024/10/11 14:43:55 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:19:52 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,33 +44,28 @@ void	Base::identify(Base* p) {
 
 void	Base::identify(Base& p) {
 	
-	bool	found = false;
-
 	try {
 		A& a = dynamic_cast<A&>(p);
 		(void)a;
 		std::cout << "Base type: A" << std::endl;
-		found = true;
 	}
-	catch (std::exception &e) {}
-
-	if (found == false) {
+	catch (std::exception &e) {
 		try {
 			B& b = dynamic_cast<B&>(p);
 			(void)b;
 			std::cout << "Base type: B" << std::endl;
-			found = true;
 		}
-		catch (std::exception &e) {}
-	}
-
-	if (found == false) {
-		try {
-			C& c = dynamic_cast<C&>(p);
-			(void)c;
-			std::cout << "Base type: C" << std::endl;
+		catch (std::exception &e) {
+			try {
+				C& c = dynamic_cast<C&>(p);
+				std::cout << "Base type: C" << std::endl;
+				(void)c;
+				return;
+			}
+			catch (std::exception &e) {
+				std::cout << e.what() << std::endl;
+			}
 		}
-		catch (std::exception &e) {}
 	}
 }
 

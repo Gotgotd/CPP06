@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:24:26 by gdaignea          #+#    #+#             */
-/*   Updated: 2024/10/11 14:46:34 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:20:20 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int	main() {
 	base.identify(test1);
 	base.identify(test2);
 	base.identify(test3);	
+
+	std::cout << std::endl;
+	std::cout << "Tests by pointers with NULL :" << std::endl;
+	base.identify(base);
 
 	test1 = base.generate();
 	test2 = base.generate();
