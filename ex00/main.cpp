@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 11:56:55 by gdaignea          #+#    #+#             */
-/*   Updated: 2024/10/09 14:46:46 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:51:12 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 int	main(int ac, char **av) {
 
-	ScalarConverter converter;
-	
 	if (ac == 2) {
-		converter.convert(av[1]);
+		ScalarConverter::convert(av[1]);
 	}
 	else 
 		std::cout << "Please provide a char, int, double or float to run the program" << std::endl;

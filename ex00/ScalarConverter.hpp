@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:42:10 by gdaignea          #+#    #+#             */
-/*   Updated: 2024/10/15 11:55:56 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:51:12 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@
 
 class ScalarConverter {
 
+	private:
+	ScalarConverter();
+	
 	public:
 
-	ScalarConverter();
 	ScalarConverter(ScalarConverter const& copy);
 	~ScalarConverter();
 
