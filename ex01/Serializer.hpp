@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:48:17 by gdaignea          #+#    #+#             */
-/*   Updated: 2024/10/10 15:04:09 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:09:51 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ class Serializer {
 
 	Serializer();
 	Serializer(Serializer const& copy);
-	~Serializer();
 
 	public:
+	
+	~Serializer();
 
 	Serializer&	operator=(Serializer const& rhs);
 
