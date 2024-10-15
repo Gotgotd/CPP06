@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:04:46 by gdaignea          #+#    #+#             */
-/*   Updated: 2024/10/15 11:04:31 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:31:59 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,5 +161,5 @@ void	ScalarConverter::convert(std::string const& literal) {
 	}
 
 	else
-		std::cout << "no valid number to be converted" << std::endl;
+		std::cout << "Error. No valid number or char to be converted" << std::endl;
 }
