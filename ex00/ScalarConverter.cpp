@@ -6,7 +6,7 @@
 /*   By: gdaignea <gdaignea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:04:46 by gdaignea          #+#    #+#             */
-/*   Updated: 2024/10/09 14:55:59 by gdaignea         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:04:31 by gdaignea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,20 @@ bool	isLiteralFloat(std::string	const& literal) {
 
 	if (literal == "nanf" || literal == "+inff" || literal == "-inff")
 		return true;
+	size_t i = 0;
+	if (literal[i] == '-' || literal[i] == '+') {
+		i++;
+	}
 	if (literal[literal.length() - 1] != 'f')
-		return false;
-	for (size_t i = ((literal[0] == '-' || literal[0] == '+') ? 1 : 0); i < literal.length() - 2; i++) {
-		
+			return false;
+	for (; i < literal.length() - 1; i++) {		
 		if (!isdigit(literal[i]) && literal[i] != '.')
 			return false;
-		if (literal[i] == '.')
+		if (literal[i] == '.') {
 			dotFlag++;
-		if (dotFlag != 1)
-			return false;
+			if (dotFlag != 1)
+				return false;
+		}
 	}
 	return true;
 }
@@ -72,16 +76,19 @@ bool	isLiteralDouble(std::string literal) {
 
 	if (literal == "nan" || literal == "+inf" || literal == "-inf")
 		return true;
-	for (size_t i = ((literal[0] == '-' || literal[0] == '+') ? 1 : 0); i < literal.length() - 2; i++) {		
+	size_t i = 0;
+	if (literal[i] == '-' || literal[i] == '+')
+		i++;
+	for (; i < literal.length(); i++) {		
 		if (!isdigit(literal[i]) && literal[i] != '.')
 			return false;
-		if (literal[i] == '.')
+		if (literal[i] == '.') {
 			dotFlag++;
-		if (dotFlag != 1)
-			return false;
+			if (dotFlag != 1)
+				return false;
+		}
 	}
 	return true;
-
 }
 
 void	ScalarConverter::convert(std::string const& literal) {
@@ -116,7 +123,6 @@ void	ScalarConverter::convert(std::string const& literal) {
 
 	else if (isLiteralFloat(literal)) {
 		float	f_nb = strtof(literal.c_str(), NULL);
-		std::cout << "float nb: " << f_nb << std::endl;
 		if (isnanf(f_nb) || isinff(f_nb)) {
 			std::cout << "char: impossible" << std::endl;
 			std::cout << "int: impossible" << std::endl;
@@ -126,15 +132,17 @@ void	ScalarConverter::convert(std::string const& literal) {
 		else {
 		std::cout << "char: '*'" << std::endl;
 		std::cout << "int: " << static_cast<int>(f_nb) << std::endl;
-		std::cout << "float: " << f_nb << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(f_nb) << std::endl;
+		if (literal == "0.0" || literal == "0")
+			std::cout << "float: 0.0f" << std::endl;
+		else
+			std::cout << "float: " << f_nb << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(f_nb) << ".0" << std::endl;
 		}
 	}
 
 	else if (isLiteralDouble(literal)) {
 		char *endptr;
 		double	d_nb = strtof(literal.c_str(), &endptr);
-		std::cout << "double nb: " << d_nb << std::endl;
 		if (std::isnan(d_nb) || std::isinf(d_nb)) {
 			std::cout << "char: impossible" << std::endl;
 			std::cout << "int: impossible" << std::endl;
@@ -144,8 +152,11 @@ void	ScalarConverter::convert(std::string const& literal) {
 		else {
 		std::cout << "char: '*'" << std::endl;
 		std::cout << "int: " << static_cast<int>(d_nb) << std::endl;
-		std::cout << "float: " << literal << "f" << std::endl;
-		std::cout << "double: " << d_nb << std::endl;
+		if (literal == "0.0" || literal == "0")
+			std::cout << "float: 0.0f" << std::endl;
+		else
+			std::cout << "float: " << d_nb << ".0f" << std::endl;
+		std::cout << "double: " << d_nb << ".0" << std::endl;
 		}
 	}
 
